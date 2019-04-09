@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b4a8618-e9e1-4319-b05b-2ab2d2822c34" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-microservices/myhero_app/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app-microservices/myhero_app/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-microservices/myhero_data/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app-microservices/myhero_data/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-microservices/myhero_ui/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/app-microservices/myhero_ui/Dockerfile" afterDir="false" />
@@ -184,7 +182,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="68" y="27" width="1680" height="948" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14102565" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
