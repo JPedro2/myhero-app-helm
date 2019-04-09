@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/app-microservices/myhero_app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/app-microservices/myhero_data" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/app-microservices/myhero_ui" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/myhero-hpreston/k8s-manif/sbx_acik8s" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/myhero-hpreston/myhero_app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/myhero-hpreston/myhero_data" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/myhero-hpreston/myhero_ernst" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/myhero-hpreston/myhero_ui" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/myhero-julio/k8s-manif/devops" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/myhero-julio/myhero_app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/myhero-julio/myhero_data" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/myhero-julio/myhero_ui" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/myhero_app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/myhero_data" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/myhero_ui" vcs="Git" />
+  </component>
+</project>

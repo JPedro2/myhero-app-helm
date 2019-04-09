@@ -1,0 +1,51 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-{{ .Values.myhero_mosca.name }}-service
+  labels:
+    app: {{ .Release.Name }}-{{ .Values.myhero_mosca.name }}
+    tier: mosca
+spec:
+  ports:
+  - port: 1883
+    targetPort: 1883
+  selector:
+    app: {{ .Release.Name }}-{{ .Values.myhero_mosca.name }}
+    tier: mosca
+  type: {{ .Values.myhero_mosca.service.type }}
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-{{ .Values.myhero_mosca.name }}-deployment
+spec:
+  replicas: {{ .Values.myhero_mosca.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-{{ .Values.myhero_mosca.name }}
+        tier: mosca
+    spec:
+      containers:
+      - name: myhero-mosca
+        image: {{ .Values.myhero_mosca.image.repo }}:{{ .Values.myhero_mosca.image.tag }}
+        livenessProbe:
+          tcpSocket:
+            port: 1883
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        readinessProbe:
+          tcpSocket:
+            port: 1883
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        ports:
+        - containerPort: 1883
+          name: mqtt
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 200m
+            memory: 64M
+      restartPolicy: Always

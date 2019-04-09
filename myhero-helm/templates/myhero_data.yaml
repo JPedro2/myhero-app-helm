@@ -1,0 +1,57 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-{{ .Values.myhero_data.name }}-service
+  labels:
+    app: {{ .Release.Name }}-{{ .Values.myhero_data.name }}
+    tier: data
+spec:
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: {{ .Release.Name }}-{{ .Values.myhero_data.name }}
+    tier: data
+  type: {{ .Values.myhero_data.service.type }}
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-{{ .Values.myhero_data.name }}-deployment
+spec:
+  replicas: {{ .Values.myhero_data.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-{{ .Values.myhero_data.name }}
+        tier: data
+    spec:
+      containers:
+      - name: myhero-data
+        image: {{ .Values.myhero_data.image.repo }}:{{ .Values.myhero_data.image.tag }}
+        livenessProbe:
+          httpGet:
+            path: /hero_list
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /hero_list
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        ports:
+        - containerPort: 5000
+          name: http
+          protocol: TCP
+        env:
+          - name: myhero_data_key
+            value: SecureData
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 200m
+            memory: 64M
+      restartPolicy: Always

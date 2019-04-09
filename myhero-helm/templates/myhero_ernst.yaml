@@ -1,0 +1,31 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-{{ .Values.myhero_ernst.name }}-deployment
+spec:
+  replicas: {{ .Values.myhero_ernst.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-{{ .Values.myhero_ernst.name }}
+        tier: ernst
+    spec:
+      containers:
+      - name: myhero-ernst
+        image: {{ .Values.myhero_ernst.image.repo }}:{{ .Values.myhero_ernst.image.tag }}
+        env:
+          - name: myhero_mqtt_host
+            value: {{ .Release.Name }}-{{ .Values.myhero_mosca.name }}-service
+          - name: myhero_mqtt_port
+            value: "1883"
+          - name: myhero_data_srv
+            value: {{ .Release.Name }}-{{ .Values.myhero_data.name }}-service
+          - name: myhero_data_key
+            value: SecureData
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 200m
+            memory: 32M
+      restartPolicy: Always

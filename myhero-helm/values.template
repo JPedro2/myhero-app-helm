@@ -1,0 +1,50 @@
+myhero_app:
+  name: myhero-app
+  replicaCount: 3
+  image:
+    repo: hpreston/myhero_app
+    tag: latest
+  containerPort: 5000
+  service:
+    type: LoadBalancer
+    loadBalancerIP: <PROVIDE-EXTERNAL-IP-FOR-myhero-app>
+
+myhero_data:
+  name: myhero-data
+  replicaCount: 1
+  image:
+    repo: hpreston/myhero_data
+    tag: latest
+  containerPort: 5000
+  service:
+    type: NodePort
+
+myhero_ui:
+  name: myhero-ui
+  replicaCount: 2
+  image:
+    repo: hpreston/myhero_ui
+    tag: latest
+  containerPort: 80
+  service:
+    type: LoadBalancer
+    env:
+      ingress: <EXTERNAL-IP-FROM-myhero-app>
+
+myhero_ernst:
+  name: myhero-ernst
+  replicaCount: 1
+  image:
+    repo: hpreston/myhero_ernst
+    tag: latest
+  containerPort: 5000
+
+myhero_mosca:
+  name: myhero-mosca
+  replicaCount: 1
+  image:
+    repo: matteocollina/mosca
+    tag: latest
+  containerPort: 1883
+  service:
+    type: NodePort

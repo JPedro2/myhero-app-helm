@@ -1,0 +1,67 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-{{ .Values.myhero_app.name }}-service
+  labels:
+    app: {{ .Release.Name }}-{{ .Values.myhero_app.name }}
+    tier: app
+spec:
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: {{ .Release.Name }}-{{ .Values.myhero_app.name }}
+    tier: app
+  type: {{ .Values.myhero_app.service.type }}
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-{{ .Values.myhero_app.name }}-deployment
+spec:
+  replicas: {{ .Values.myhero_app.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-{{ .Values.myhero_app.name }}
+        tier: app
+    spec:
+      containers:
+      - name: myhero-app
+        image: {{ .Values.myhero_app.image.repo }}:{{ .Values.myhero_app.image.tag }}
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        ports:
+        - containerPort: 5000
+          name: http
+          protocol: TCP
+        env:
+          - name: myhero_mqtt_host
+            value: {{ .Release.Name }}-{{ .Values.myhero_mosca.name }}-service
+          - name: myhero_mqtt_port
+            value: "1883"
+          - name: myhero_app_mode
+            value: queue
+          - name: myhero_data_srv
+            value: {{ .Release.Name }}-{{ .Values.myhero_data.name }}-service
+          - name: myhero_data_key
+            value: SecureData
+          - name: myhero_app_key
+            value: SecureApp
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 200m
+            memory: 48M
+      restartPolicy: Always

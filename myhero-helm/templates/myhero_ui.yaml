@@ -1,0 +1,59 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-{{ .Values.myhero_ui.name }}-service
+  labels:
+    app: {{ .Release.Name }}-{{ .Values.myhero_ui.name }}
+    tier: ui
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: {{ .Release.Name }}-{{ .Values.myhero_ui.name }}
+    tier: ui
+  type: {{ .Values.myhero_ui.service.type }}
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-{{ .Values.myhero_ui.name }}-deployment
+spec:
+  replicas: {{ .Values.myhero_ui.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-{{ .Values.myhero_ui.name }}
+        tier: ui
+    spec:
+      containers:
+      - name: myhero-ui
+        image: {{ .Values.myhero_ui.image.repo }}:{{ .Values.myhero_ui.image.tag }}
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        env:
+          - name: myhero_app_server
+            value: {{ .Values.myhero_ui.service.env.ingress }}
+          - name: myhero_app_key
+            value: SecureApp
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 200m
+            memory: 48M
+      restartPolicy: Always
