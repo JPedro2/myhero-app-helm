@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b4a8618-e9e1-4319-b05b-2ab2d2822c34" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/myhero-helm/values.template" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-microservices/myhero_app/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app-microservices/myhero_app/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-microservices/myhero_data/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app-microservices/myhero_data/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-microservices/myhero_ui/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/app-microservices/myhero_ui/Dockerfile" afterDir="false" />
@@ -24,8 +25,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-3019">
-                <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+              <first_editor relative-caret-position="274">
+                <caret line="247" lean-forward="true" selection-start-line="247" selection-end-line="247" />
               </first_editor>
               <second_editor />
             </state>
@@ -119,7 +120,7 @@
             <path>
               <item name="Helm-MyHero" type="b2602c69:ProjectViewProjectNode" />
               <item name="Helm-MyHero" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="myhero-helm" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -185,7 +186,7 @@
     <frame x="68" y="27" width="1680" height="948" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14102565" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14102565" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -196,7 +197,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4981685" visible="true" weight="0.51635516" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4981685" visible="true" weight="0.51635516" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50183153" side_tool="true" weight="0.45408162" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -445,9 +446,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/myhero-helm/values.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -469,11 +467,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-3019">
-            <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+          <first_editor relative-caret-position="274">
+            <caret line="247" lean-forward="true" selection-start-line="247" selection-end-line="247" />
           </first_editor>
           <second_editor />
         </state>

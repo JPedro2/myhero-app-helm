@@ -1,8 +1,7 @@
 # Introduction
 This demo was developed for [DevNet Create19](https://developer.cisco.com/devnetcreate/2019/) and it aims to demonstrate
 the power of Helm when deploying an application with several microservices.
-If you are new to the DevOps world and wish to know more about microservices, containers and Kubernetes, I highly recommend that you  
-follow this amazing [DevOps tutorial](https://github.com/juliogomez/devops/) developed by [Julio Gomez](https://twitter.com/juliodevops).
+If you are new to the DevOps world and wish to know more about microservices, containers and Kubernetes, I highly recommend that you follow this amazing [DevOps tutorial](https://github.com/juliogomez/devops/) developed by [Julio Gomez](https://twitter.com/juliodevops).
 
 # Helm
 [Helm](https://helm.sh/) is a tool that streamlines installing and managing Kubernetes applications.
@@ -151,7 +150,7 @@ If the `Client` and `Tiller` versions do not match, you can upgrade the Tiller w
 helm init --upgrade
 ```
 
-#Deploy myhero-app with Helm
+# Deploy myhero-app with Helm
 
 Once you have your K8s cluster up and running with Helm, deploying myhero-app using Helm is quite straight forward 🚀🤓. 
 In fact, all you need is a single command.
@@ -182,14 +181,16 @@ jazzed-donkey-myhero-mosca-service  NodePort      10.98.120.131   <none>        
 jazzed-donkey-myhero-ui-service     LoadBalancer  10.106.32.188   10.10.20.211  80:30617/TCP    6d2h
 ```
 
+
 You can now access this IP address and start voting on your favourite 🦸‍♀️SUPER HERO!🦸‍♂️
+
 
 <p align="center"> 
 <img src="./images/myhero-app-v1.png">
 </p>
 
 
-##Update the application and rollback
+## Update the application and rollback
 
 If you wish to update your application, let's say increase the number of PODs under your myhero-app service, or even 
 update the Web-UI, you can do that with Helm with yet again, a single line of code.
