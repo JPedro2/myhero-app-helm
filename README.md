@@ -1,3 +1,5 @@
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/JPedro2/myhero-app-helm)
+
 # Introduction
 This demo was developed for [DevNet Create19](https://developer.cisco.com/devnetcreate/2019/) and it aims to demonstrate
 the power of Helm when deploying an application with several microservices.
